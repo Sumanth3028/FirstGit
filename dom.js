@@ -1,0 +1,14 @@
+//console.dir(document);
+//console.dir(document.head);
+//console.dir(document.body);
+//console.dir(document.forms);
+//console.dir(document.URL);
+//console.dir(document.title);
+//console.dir(document.links);
+var header=document.getElementById('main-header');
+header.style.borderBottom='solid 3px #000';
+var headerTitle=document.getElementById('header-title');
+headerTitle.style.color="#ccc";
+console.log(header);
+var subTitle=document.querySelector('.title');
+subTitle.style.color="green";
