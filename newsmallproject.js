@@ -13,9 +13,11 @@ function addItem(e){
 
     //creating a new list and appending form value init
     var newItem= document.getElementById('item').value;
+    var Description=document.getElementById('item2').value;
     var li=document.createElement('li');
     li.className='list-group-item';
     li.appendChild(document.createTextNode(newItem));
+    li.appendChild(document.createTextNode('  '+Description));
 
     //creating a  new delete button
     var newButton=document.createElement('button');
@@ -47,7 +49,8 @@ function filterItems(e)
     var items=document.getElementsByTagName('li');
     Array.from(items).forEach(function(item){
            var itemName=item.firstChild.textContent;
-           if(itemName.toLowerCase().indexOf(text) !=-1){
+           var Description=item.childNodes[1].textContent;
+           if(itemName.toLowerCase().indexOf(text) !=-1||Description.toLowerCase().indexOf(text)!= -1){
             item.style.display='block';
            }
            else{
