@@ -10,8 +10,13 @@ form.addEventListener('submit',onSubmit);
 
         var Myobj={name,email};
         objects.push(Myobj);
-        localStorage.setItem('obj',JSON.stringify(objects));
-        console.log(JSON.parse(JSON.stringify(objects)));
-       
-        
+        localStorage.setItem(email,JSON.stringify(objects));
+       showUserOnScreen(Myobj);
     }
+     function showUserOnScreen(Myobj){
+        const parentElem=document.getElementById("items");
+        // var li=document.createElement('li');
+        // li.textContent=Myobj.name +' - ' + Myobj.email;
+        // parentElem.appendChild(li);
+        parentElem.innerHTML=parentElem.innerHTML+`<li>${Myobj.name}-${Myobj.email}</li>`;
+     }
