@@ -15,8 +15,18 @@ form.addEventListener('submit',onSubmit);
     }
      function showUserOnScreen(Myobj){
         const parentElem=document.getElementById("items");
-        // var li=document.createElement('li');
-        // li.textContent=Myobj.name +' - ' + Myobj.email;
-        // parentElem.appendChild(li);
-        parentElem.innerHTML=parentElem.innerHTML+`<li>${Myobj.name}-${Myobj.email}</li>`;
+        var li=document.createElement('li');
+        li.textContent=Myobj.name +' - ' + Myobj.email;
+        var delbtn=document.createElement('input');
+          delbtn.type='button';
+          delbtn.value='delete';
+          delbtn.onclick=()=>{
+            localStorage.removeItem(Myobj.email);
+            parentElem.removeChild(li);
+          }
+          li.appendChild(delbtn);
+          parentElem.appendChild(li);
+          
+          
      }
+     
