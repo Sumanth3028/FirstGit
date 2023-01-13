@@ -24,7 +24,17 @@ form.addEventListener('submit',onSubmit);
             localStorage.removeItem(Myobj.email);
             parentElem.removeChild(li);
           }
+          const Editbtn=document.createElement('input');
+          Editbtn.type='button';
+          Editbtn.value='Edit';
+          Editbtn.onclick= () => {
+            localStorage.removeItem(Myobj.email);
+            parentElem.removeChild(li);
+            document.getElementById('name').value= Myobj.name;
+            document.getElementById('email').value= Myobj.email;
+          }
           li.appendChild(delbtn);
+          li.appendChild(Editbtn);
           parentElem.appendChild(li);
           
           
