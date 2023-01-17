@@ -1,14 +1,27 @@
-//console.dir(document);
-//console.dir(document.head);
-//console.dir(document.body);
-//console.dir(document.forms);
-//console.dir(document.URL);
-//console.dir(document.title);
-//console.dir(document.links);
-var header=document.getElementById('main-header');
-header.style.borderBottom='solid 3px #000';
-var headerTitle=document.getElementById('header-title');
-headerTitle.style.color="#ccc";
-console.log(header);
-var subTitle=document.querySelector('.title');
-subTitle.style.color="green";
+var form=document.getElementById('my-form');
+var name=document.getElementById('name');
+var email=document.getElementById('email');
+form.addEventListener('submit',onSubmit);
+    let objects=[];
+    function onSubmit(e){
+        e.preventDefault();
+        var name=e.target.name.value;
+        var email=e.target.email.value;
+
+        var Myobj={name,email};
+        objects.push(Myobj);
+        localStorage.setItem(email,JSON.stringify(objects));
+       showUserOnScreen(Myobj);
+    }
+     function showUserOnScreen(Myobj){
+        const parentElem=document.getElementById("items");
+        var li=document.createElement('li');
+        li.textContent=Myobj.name +' - ' + Myobj.email;
+        parentElem.appendChild(li);
+
+        var delbtn=document.createElement('input');
+          delbtn.id='submit';
+          delbtn.className="btn btn-dark btn-sm float-right";
+          delbtn.value='delete';
+          li.appendChild(delbtn);
+     }
